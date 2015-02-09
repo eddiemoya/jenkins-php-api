@@ -308,7 +308,7 @@ class Jenkins
       throw new RuntimeException('Error during json_decode');
     }
 
-    return new Jenkins_Job($infos, $this);
+    return new Jenkins_Job($infos, $this, $jobName);
   }
 
   /**
@@ -456,7 +456,7 @@ class Jenkins
       return null;
     }
 
-    return new Jenkins_Build($infos, $this);
+    return new Jenkins_Build($infos, $this, $job);
   }
 
   /**

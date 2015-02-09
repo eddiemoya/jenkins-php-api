@@ -14,13 +14,20 @@ class Jenkins_Job
   protected $jenkins;
 
   /**
+   * @var string
+   */
+  protected $jobName;
+
+
+  /**
    * @param stdClass $job
    * @param \Jenkins $jenkins
+   * @param string $jobName
    */
-  public function __construct($job, Jenkins $jenkins)
+  public function __construct($job, Jenkins $jenkins, $jobName)
   {
     $this->job = $job;
-
+    $this->jobName = $jobName;
     $this->setJenkins($jenkins);
   }
 
@@ -55,7 +62,7 @@ class Jenkins_Job
    */
   public function getName()
   {
-    return $this->job->name;
+    return $this->jobName;
   }
 
   /**
